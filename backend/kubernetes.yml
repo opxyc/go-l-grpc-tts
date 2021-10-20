@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: say
+  labels:
+    app: say
+    type: backend
+spec:
+  selector:
+    matchLabels:
+      app: say
+  replicas: 2
+  template:
+    metadata:
+      name: say-backend
+      labels:
+        app: say
+    spec:
+      containers:
+      - name: say-backend
+        image: say-backend:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: say-service
+spec:
+  type: NodePort
+  selector:
+    app: say
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30080

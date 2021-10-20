@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "github.com/opxyc/textToSpeech/say";
+
+package say;
+
+service TextToSpeech {
+    rpc Say(Text) returns(Speech) {}
+}
+
+message Text {
+    string text = 1;
+}
+
+message Speech {
+    bytes audio = 1;
+}
