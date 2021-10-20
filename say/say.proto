@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/opxyc/textToSpeech/say";
+option go_package = "github.com/opxyc/go-l-t2s/say";
 
 package say;
 
