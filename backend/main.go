@@ -7,8 +7,8 @@ import (
 	"io/ioutil"
 	"log"
 	"net"
-	"os/exec"
 
+	"github.com/opxyc/go-l-t2s/flite"
 	pb "github.com/opxyc/go-l-t2s/say"
 
 	"google.golang.org/grpc"
@@ -47,10 +47,11 @@ func (server) Say(ctx context.Context, t *pb.Text) (*pb.Speech, error) {
 		return nil, fmt.Errorf("failed to close %s:%s", f.Name(), err)
 	}
 
-	cmd := exec.Command("flite", "-t", t.Text, "-o", f.Name())
-	if data, err := cmd.CombinedOutput(); err != nil {
+	// flite package
+	err = flite.TextToSpeech(t.Text, f.Name())
+	if err != nil {
 		log.Println(err.Error())
-		return nil, fmt.Errorf("flight failed: %s", data)
+		return nil, fmt.Errorf("flight failed: %s", err)
 	}
 
 	data, err := ioutil.ReadFile(f.Name())
