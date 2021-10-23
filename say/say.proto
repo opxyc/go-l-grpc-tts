@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/opxyc/go-l-t2s/say";
+option go_package = "github.com/opxyc/go-l-grpc-tts/say";
 
 package say;
 

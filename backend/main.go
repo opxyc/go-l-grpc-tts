@@ -8,8 +8,8 @@ import (
 	"log"
 	"net"
 
-	"github.com/opxyc/go-l-t2s/flite"
-	pb "github.com/opxyc/go-l-t2s/say"
+	"github.com/opxyc/go-l-grpc-tts/flite"
+	pb "github.com/opxyc/go-l-grpc-tts/say"
 
 	"google.golang.org/grpc"
 )

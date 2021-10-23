@@ -1,4 +1,4 @@
-module github.com/opxyc/go-l-t2s
+module github.com/opxyc/go-l-grpc-tts
 
 go 1.17
 

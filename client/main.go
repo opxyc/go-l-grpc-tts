@@ -8,7 +8,7 @@ import (
 	"log"
 	"os"
 
-	pb "github.com/opxyc/go-l-t2s/say"
+	pb "github.com/opxyc/go-l-grpc-tts/say"
 
 	"google.golang.org/grpc"
 )
